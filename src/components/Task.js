@@ -1,13 +1,40 @@
-import React from "react";
+import React from 'react';
 
-function Task() {
+const Task = ({ task, onDelete }) => {
+  // Make sure task is defined before trying to access its properties
+  if(!task){
+    return null;
+  }
+
+  const handleDelete = () => {
+    onDelete(task.text);
+  }
+
   return (
     <div className="task">
-      <div className="label">CATEGORY HERE</div>
-      <div className="text">TEXT HERE</div>
-      <button className="delete">X</button>
+      <div className="text"><p>{task.text}</p></div>
+      <div className="category"><p>{task.category}</p></div>
+      <button onClick={handleDelete}>Delete</button>
     </div>
   );
-}
+};
 
 export default Task;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
